@@ -23,8 +23,16 @@ public class Author {
         return "Автор: " + this.name + " " + this.lastName;
     }
 
-    public boolean equals(Author author) {
-        return this.name.equals(author.name) && this.lastName.equals(author.lastName);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Author author = (Author) o;
+        return Objects.equals(name, author.name) && Objects.equals(lastName, author.lastName);
     }
 
     @Override
